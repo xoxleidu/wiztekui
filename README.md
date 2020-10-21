@@ -1,6 +1,7 @@
 # wiztekui
 
 > wiztek UI project
+> https://github.com/xoxleidu/wiztekui
 
 ## Setup
 
