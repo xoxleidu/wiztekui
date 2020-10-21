@@ -1,0 +1,292 @@
+/**
+ * name value
+*/
+$namespace: "wz";
+$element-separator: "__";
+$modifier-separator: "--";
+$state-prefix: "is-";
+$--font-path: "../font" !default;
+/**
+ * style value 
+*/
+$--color-white: #ffffff;
+$--color-white-light: #eeeeee;
+$--color-white-lighter: #f8f8f8;
+$--color-black: #000000;
+$--color-black-5: #555555;
+$--color-black-8: #888888;
+$--color-black-d: #dddddd;
+$--color-black-e: #eeeeee;
+$--color-primary: #0062cc !default;
+$--color-primary-light-1: mix($--color-white,
+  $--color-primary,
+  10%) !default;
+/* #1a72d1 */
+$--color-primary-light-2: mix($--color-white,
+  $--color-primary,
+  20%) !default;
+/* #3281d6 */
+$--color-primary-light-3: mix($--color-white,
+  $--color-primary,
+  30%) !default;
+/* #4d91db */
+$--color-primary-light-4: mix($--color-white,
+  $--color-primary,
+  40%) !default;
+/* #66a1e0 */
+$--color-primary-light-5: mix($--color-white,
+  $--color-primary,
+  50%) !default;
+/* #7fb1e6 */
+$--color-primary-light-6: mix($--color-white,
+  $--color-primary,
+  60%) !default;
+/* #99c0eb */
+$--color-primary-light-7: mix($--color-white,
+  $--color-primary,
+  70%) !default;
+/* #b3d0f0 */
+$--color-primary-light-8: mix($--color-white,
+  $--color-primary,
+  80%) !default;
+/* #cbe0f5 */
+$--color-primary-light-9: mix($--color-white,
+  $--color-primary,
+  90%) !default;
+/* #e5effa */
+$--color-success: #28a745 !default;
+$--color-warning: #ffc107 !default;
+$--color-danger: #dc3545 !default;
+$--color-info: #6d757d !default;
+$--color-success-dark: mix($--color-white, $--color-success, 20%) !default;
+$--color-warning-dark: mix($--color-white, $--color-warning, 20%) !default;
+$--color-danger-dark: mix($--color-white, $--color-danger, 20%) !default;
+$--color-info-dark: mix($--color-white, $--color-info, 20%) !default;
+$--color-success-light: mix($--color-white, $--color-success, 80%) !default;
+$--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
+$--color-danger-light: mix($--color-white, $--color-danger, 80%) !default;
+$--color-info-light: mix($--color-white, $--color-info, 80%) !default;
+$--color-success-lighter: mix($--color-white, $--color-success, 90%) !default;
+$--color-warning-lighter: mix($--color-white, $--color-warning, 90%) !default;
+$--color-danger-lighter: mix($--color-white, $--color-danger, 90%) !default;
+$--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
+// text
+$--color-text-primary: #303133;
+$--color-text-regular: #606266;
+$--color-text-secondary: #909399;
+$--color-text-placeholder: #c0c4cc;
+// border
+$--border-color-base: #dcdfe6;
+$--border-color-light: #e4e7ed;
+$--border-color-lighter: #ebeef5;
+$--border-color-extra-light: #f2f6fc;
+$--border-radius-base: 4px !default;
+// background
+$--background-color-base: #f5f7fa;
+// font
+$--font-weight: 500 !default;
+$--font-bold: 800 !default;
+$--font-size-base: 14px !default;
+// Box-shadow
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12),
+0 0 6px rgba(0, 0, 0, .04) !default;
+$--box-shadow-dark: 0px 2px 3px rgba(0, 0, 0, 0.1),
+0px 0px 3px rgba(0, 0, 0, 0.1) !default;
+$--box-shadow-light: 0px 2px 3px rgba(0, 0, 0, 0.05),
+0px 0px 3px rgba(0, 0, 0, 0.05) !default;
+/* button
+--------------------------*/
+$--button-hover-tint-percent: 20% !default;
+$--button-default-background-color: #ffffff !default;
+$--button-font-size: $--font-size-base;
+$--button-font-weight: $--font-weight;
+$--button-border-radius: $--border-radius-base;
+$--button-padding-vertical: 10px;
+$--button-padding-horizontal: 15px;
+
+$--button-disabled-font-color: $--color-text-placeholder !default;
+$--button-disabled-background-color: $--color-white !default;
+$--button-disabled-border-color: $--border-color-light !default;
+
+$--button-medium-font-size: $--font-size-base;
+$--button-medium-border-radius: $--border-radius-base;
+$--button-medium-padding-vertical: 10px;
+$--button-medium-padding-horizontal: 15px;
+
+$--button-big-font-size: 18px;
+$--button-big-border-radius: #{$--border-radius-base + 1};
+$--button-big-padding-vertical: 12px;
+$--button-big-padding-horizontal: 20px;
+
+$--button-small-font-size: 12px;
+$--button-small-border-radius: #{$--border-radius-base - 1};
+$--button-small-padding-vertical: 8px;
+$--button-small-padding-horizontal: 12px;
+
+$--button-mini-font-size: 12px;
+$--button-mini-border-radius: #{$--border-radius-base - 1};
+$--button-mini-padding-vertical: 5px;
+$--button-mini-padding-horizontal: 10px;
+/* Card
+--------------------------*/
+$--card-border-color: $--border-color-light !default;
+$--card-border-radius: 4px !default;
+$--card-padding: 8px !default;
+$--card-background-primary: #000000;
+
+/**
+ * class value
+*/
+%--label-bg-gradient-primary {
+  background: linear-gradient($--color-primary-light-4, $--color-primary-light-1);
+  background: -webkit-linear-gradient($--color-primary-light-4, $--color-primary-light-1);
+  background: -moz-linear-gradient($--color-primary-light-4, $--color-primary-light-1);
+}
+
+%--label-bg-gradient-info {
+  background: linear-gradient($--color-white, $--color-white-lighter);
+  background: -webkit-linear-gradient($--color-white, $--color-white-lighter);
+  background: -moz-linear-gradient($--color-white, $--color-white-lighter);
+}
+
+@mixin utils-user-select($value) {
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
+}
+
+@mixin b($block) {
+  $B: $namespace + "-"+ $block !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin e($element) {
+  $E: $element !global;
+  $selector: &;
+  $currentSelector: "";
+
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+  }
+
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector} {
+          @content;
+        }
+      }
+    }
+  }
+
+  @else {
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: "";
+
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector +
+ &+$modifier-separator+$unit+","
+  }
+
+  ;
+}
+
+@at-root {
+  #{$currentSelector} {
+    @content;
+  }
+}
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+@mixin button-variant($color, $background-color, $border-color) {
+  color: $color;
+  background-color: $background-color;
+  border-color: $border-color;
+
+  &:hover,
+  &:focus {
+    background: mix($--color-white,
+        $background-color,
+        $--button-hover-tint-percent);
+    border-color: mix($--color-white,
+        $border-color,
+        $--button-hover-tint-percent);
+    color: $color;
+  }
+}
+
+@mixin button-size($padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+
+  &.is-round {
+    padding: $padding-vertical $padding-horizontal;
+  }
+}
+
+/* function
+ -------------------------- */
+@function containsModifier($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, $modifier-separator) {
+    @return true;
+  }
+
+  @else {
+    @return false;
+  }
+}
+
+@function containWhenFlag($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, '.'+ $state-prefix) {
+    @return true
+  }
+
+  @else {
+    @return false
+  }
+}
+
+@function containPseudoClass($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, ':') {
+    @return true
+  }
+
+  @else {
+    @return false
+  }
+}
+
+@function hitAllSpecialNestRule($selector) {
+
+  @return containsModifier($selector) or containWhenFlag($selector) or containPseudoClass($selector);
+}
