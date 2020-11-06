@@ -70,19 +70,32 @@ $--color-success-lighter: mix($--color-white, $--color-success, 90%) !default;
 $--color-warning-lighter: mix($--color-white, $--color-warning, 90%) !default;
 $--color-danger-lighter: mix($--color-white, $--color-danger, 90%) !default;
 $--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
+/* z-index
+-------------------------- */
+$--index-normal: 1 !default;
+$--index-top: 1000 !default;
+$--index-popper: 2000 !default;
+// background
+$--background-color-base: #f5f7fa;
+
 // text
 $--color-text-primary: #303133;
 $--color-text-regular: #606266;
 $--color-text-secondary: #909399;
 $--color-text-placeholder: #c0c4cc;
+$--font-color-disabled-base: #bbb !default;
 // border
-$--border-color-base: #dcdfe6;
+$--border-width-base: 1px !default;
+$--border-style-base: solid !default;
+$--border-color-base: #dcdfe6 !default;
 $--border-color-light: #e4e7ed;
 $--border-color-lighter: #ebeef5;
 $--border-color-extra-light: #f2f6fc;
 $--border-radius-base: 4px !default;
-// background
-$--background-color-base: #f5f7fa;
+$--border-radius-small: 2px !default;
+$--border-radius-circle: 100% !default;
+$--border-radius-zero: 0 !default;
+$--border-base:$--border-width-base $--border-style-base $--border-color-base !default;
 // font
 $--font-weight: 500 !default;
 $--font-bold: 800 !default;
@@ -94,9 +107,15 @@ $--box-shadow-dark: 0px 2px 3px rgba(0, 0, 0, 0.1),
 0px 0px 3px rgba(0, 0, 0, 0.1) !default;
 $--box-shadow-light: 0px 2px 3px rgba(0, 0, 0, 0.05),
 0px 0px 3px rgba(0, 0, 0, 0.05) !default;
+/* Disable base
+-------------------------- */
+$--disabled-fill-base: $--background-color-base !default;
+$--disabled-color-base: $--color-text-placeholder !default;
+$--disabled-border-base: $--border-color-light !default;
 /* button
 --------------------------*/
 $--button-hover-tint-percent: 20% !default;
+$--button-default-font-color: $--color-text-regular !default;
 $--button-default-background-color: #ffffff !default;
 $--button-font-size: $--font-size-base;
 $--button-font-weight: $--font-weight;
@@ -133,10 +152,197 @@ $--card-border-color: $--border-color-light !default;
 $--card-border-radius: 4px !default;
 $--card-padding: 8px !default;
 $--card-background-primary: #000000;
+/* Input
+-------------------------- */
+$--input-font-size: $--font-size-base !default;
+$--input-font-color: $--color-text-regular !default;
+$--input-width: 140px !default;
+$--input-height: 40px !default;
+$--input-border: $--border-base !default;
+$--input-border-color: $--border-color-base !default;
+$--input-border-radius: $--border-radius-base !default;
+$--input-border-color-hover: $--border-color-base !default;
+$--input-background-color: $--color-white !default;
+$--input-fill-disabled: $--disabled-fill-base !default;
+$--input-color-disabled: $--font-color-disabled-base !default;
+$--input-icon-color: $--color-text-placeholder !default;
+$--input-placeholder-color: $--color-text-placeholder !default;
+$--input-max-width: 314px !default;
+$--input-focus-border: $--color-primary !default;
+$--input-focus-fill: $--color-white !default;
+$--input-disabled-fill: $--disabled-fill-base !default;
+$--input-disabled-color: $--disabled-color-base !default;
+$--input-disabled-placeholder-color: $--color-text-placeholder !default;
 
+$--input-big-font-size: 24px !default;
+$--input-big-height: 46px !default;
+$--input-medium-font-size: 14px !default;
+$--input-medium-height: 36px !default;
+$--input-small-font-size: 13px !default;
+$--input-small-height: 32px !default;
+$--input-mini-font-size: 12px !default;
+$--input-mini-height: 28px !default;
+/* Radio
+-------------------------- */
+$--radio-font-size: $--font-size-base !default;
+$--radio-font-color: $--color-text-regular !default;
+$--radio-input-height: 14px !default;
+$--radio-input-width: 14px !default;
+$--radio-input-border-radius: $--border-radius-circle !default;
+$--radio-input-background-color: $--color-white !default;
+$--radio-input-border: $--border-base !default;
+$--radio-input-border-color: $--border-color-base !default;
+$--radio-icon-color: $--color-white !default;
+
+$--radio-disabled-input-border-color: $--disabled-border-base !default;
+$--radio-disabled-input-fill: $--disabled-fill-base !default;
+$--radio-disabled-icon-color: $--disabled-fill-base !default;
+$--radio-disabled-checked-input-border-color: $--disabled-border-base !default;
+$--radio-disabled-checked-input-fill: $--disabled-fill-base !default;
+$--radio-disabled-checked-icon-color: $--color-text-placeholder !default;
+
+$--radio-checked-font-color: $--color-primary !default;
+$--radio-checked-input-border-color: $--color-primary !default;
+$--radio-checked-input-background-color: $--color-white !default;
+$--radio-checked-icon-color: $--color-primary !default;
+$--radio-input-border-color-hover: $--color-primary !default;
+
+$--radio-bordered-height: 40px !default;
+$--radio-bordered-padding: 12px 20px 0 10px !default;
+$--radio-bordered-medium-padding: 10px 20px 0 10px !default;
+$--radio-bordered-small-padding: 8px 15px 0 10px !default;
+$--radio-bordered-mini-padding: 6px 15px 0 10px !default;
+$--radio-bordered-medium-input-height: 14px !default;
+$--radio-bordered-medium-input-width: 14px !default;
+$--radio-bordered-medium-height: 36px !default;
+$--radio-bordered-small-input-height: 12px !default;
+$--radio-bordered-small-input-width: 12px !default;
+$--radio-bordered-small-height: 32px !default;
+$--radio-bordered-mini-input-height: 12px !default;
+$--radio-bordered-mini-input-width: 12px !default;
+$--radio-bordered-mini-height: 28px !default;
+
+$--radio-button-font-size: $--font-size-base !default;
+$--radio-button-checked-background-color: $--color-primary !default;
+$--radio-button-checked-font-color: $--color-white !default;
+$--radio-button-checked-border-color: $--color-primary !default;
+$--radio-button-disabled-checked-fill: $--border-color-extra-light !default;
+
+/* Checkbox
+-------------------------- */
+$--checkbox-font-size: $--font-size-base !default;
+$--checkbox-font-color: $--color-text-regular !default;
+$--checkbox-input-height: 14px !default;
+$--checkbox-input-width: 14px !default;
+$--checkbox-border-radius: $--border-radius-small !default;
+$--checkbox-background-color: $--color-white !default;
+$--checkbox-input-border: $--border-base !default;
+
+$--checkbox-disabled-border-color: $--border-color-base !default;
+$--checkbox-disabled-input-fill: #edf2fc !default;
+$--checkbox-disabled-icon-color: $--color-text-placeholder !default;
+$--checkbox-disabled-checked-input-fill: $--border-color-extra-light !default;
+$--checkbox-disabled-checked-input-border-color: $--border-color-base !default;
+$--checkbox-disabled-checked-icon-color: $--color-text-placeholder !default;
+
+$--checkbox-checked-font-color: $--color-primary !default;
+$--checkbox-checked-input-border-color: $--color-primary !default;
+$--checkbox-checked-background-color: $--color-primary !default;
+$--checkbox-checked-icon-color: $--color-white !default;
+
+$--checkbox-input-border-color-hover: $--color-primary !default;
+$--checkbox-bordered-height: 40px !default;
+$--checkbox-bordered-padding: 9px 20px 9px 10px !default;
+$--checkbox-bordered-medium-padding: 7px 20px 7px 10px !default;
+$--checkbox-bordered-small-padding: 5px 15px 5px 10px !default;
+$--checkbox-bordered-mini-padding: 3px 15px 3px 10px !default;
+$--checkbox-bordered-medium-input-height: 14px !default;
+$--checkbox-bordered-medium-input-width: 14px !default;
+$--checkbox-bordered-medium-height: 36px !default;
+$--checkbox-bordered-small-input-height: 12px !default;
+$--checkbox-bordered-small-input-width: 12px !default;
+$--checkbox-bordered-small-height: 32px !default;
+$--checkbox-bordered-mini-input-height: 12px !default;
+$--checkbox-bordered-mini-input-width: 12px !default;
+$--checkbox-bordered-mini-height: 28px !default;
+
+$--checkbox-button-checked-background-color: $--color-primary !default;
+$--checkbox-button-checked-font-color: $--color-white !default;
+$--checkbox-button-checked-border-color: $--color-primary !default;
+/* Switch
+-------------------------- */
+$--switch-on-color: $--color-primary !default;
+$--switch-off-color: $--border-color-base !default;
+$--switch-font-size: $--font-size-base !default;
+$--switch-core-border-radius: 4px !default;
+// height||Other|4 TODO: width 代码写死的40px 所以下面这三个属性都没意义
+$--switch-width: 35px !default;
+$--switch-height: 20px !default;
+$--switch-button-size-w: 15px !default;
+$--switch-button-size-h: 16px !default;
 /**
  * class value
 */
+
+%display_base {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+%flex_rowWarp {
+  -moz-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  div {
+    width: auto;
+  }
+}
+
+%flex_rowNoWarp {
+  -moz-flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+
+  div {
+    width: 100%;
+  }
+}
+
+%flex_start {
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+}
+
+%flex_spaceBetween {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+}
+
+%flex_spaceAround {
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+}
+
+%flex_center {
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+}
+
+%hiddenZindexDiv {
+  position: fixed;
+  z-index: -999;
+  left: 0;
+  top: 0;
+}
+
 %--label-bg-gradient-primary {
   background: linear-gradient($--color-primary-light-4, $--color-primary-light-1);
   background: -webkit-linear-gradient($--color-primary-light-4, $--color-primary-light-1);

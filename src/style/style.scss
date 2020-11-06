@@ -1,2 +1,40 @@
 $--font-path: "/lib/font";
+
+
 @import "../../lib/scss/wiztekui.scss";
+
+.wz-display-flex {
+    @extend %display_base;
+}
+
+.wz-display-flex-rowWarp {
+    @extend %flex_rowWarp;
+}
+
+.wz-display-flex-rowNoWarp {
+    @extend %flex_rowNoWarp;
+}
+
+.wz-display-flex-start {
+    @extend %flex_start;
+}
+
+.wz-display-space-between {
+    @extend %flex_spaceBetween;
+}
+
+.wz-display-space-around {
+    @extend %flex_spaceAround;
+}
+
+.wz-display-center {
+    @extend %flex_center;
+}
+
+.margin10 {
+    margin: 10px;
+}
+
+.padding5 {
+    padding: 5px;
+}
