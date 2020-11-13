@@ -5,7 +5,7 @@ $namespace: "wz";
 $element-separator: "__";
 $modifier-separator: "--";
 $state-prefix: "is-";
-$--font-path: "../font" !default;
+$--font-path: "~wiztekui/lib/font/" !default;
 /**
  * style value 
 */
@@ -112,6 +112,29 @@ $--box-shadow-light: 0px 2px 3px rgba(0, 0, 0, 0.05),
 $--disabled-fill-base: $--background-color-base !default;
 $--disabled-color-base: $--color-text-placeholder !default;
 $--disabled-border-base: $--border-color-light !default;
+/* Loading
+--------------------------*/
+$--loading-spinner-color: #555 !default;
+$--loading-spinner-size: 42px !default;
+$--loading-fullscreen-spinner-size: 50px !default;
+
+/* Menu
+--------------------------*/
+$--menu-item-height:45px !default;
+$--menu-item-radius:4px !default;
+$--menu-item-horizontal-popup-margin:3px !default;
+$--menu-item-horizontal-margin-right:8px !default;
+$--menu-item-vertical-submenu-background-color2:$--color-primary-light-2 !default;
+$--menu-item-vertical-submenu-background-color4:$--color-primary-light-4 !default;
+$--menu-item-vertical-submenu-background-color6:$--color-primary-light-6 !default;
+$--menu-item-font-size: $--font-size-base !default;
+$--menu-item-font-color: $--color-white !default;
+$--menu-item-font-active-color: #555 !default;
+$--menu-background-color: $--color-primary !default;
+$--menu-item-background-color: #95b8e7 !default;
+$--menu-item-background-active-color: $--color-white !default;
+$--menu-item-popup-background-color: $--color-white !default;
+$--menu-item-hover-fill: $--color-primary-light-9 !default;
 /* button
 --------------------------*/
 $--button-hover-tint-percent: 20% !default;
@@ -280,6 +303,19 @@ $--switch-width: 35px !default;
 $--switch-height: 20px !default;
 $--switch-button-size-w: 15px !default;
 $--switch-button-size-h: 16px !default;
+/* Tooltip
+-------------------------- */
+$--tooltip-fill: $--color-text-primary !default;
+$--tooltip-fill-primary: $--color-primary !default;
+$--tooltip-fill-success: $--color-success !default;
+$--tooltip-fill-warning: $--color-warning !default;
+$--tooltip-fill-danger: $--color-danger !default;
+$--tooltip-fill-info: $--color-info !default;
+$--tooltip-color: $--color-white !default;
+$--tooltip-font-size: 12px !default;
+$--tooltip-border-color: $--color-text-primary !default;
+$--tooltip-arrow-size: 6px !default;
+$--tooltip-padding: 10px !default;
 /**
  * class value
 */
@@ -296,20 +332,12 @@ $--switch-button-size-h: 16px !default;
   -moz-flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-
-  div {
-    width: auto;
-  }
 }
 
 %flex_rowNoWarp {
   -moz-flex-flow: row nowrap;
   -webkit-flex-flow: row nowrap;
   flex-flow: row nowrap;
-
-  div {
-    width: 100%;
-  }
 }
 
 %flex_start {
@@ -359,6 +387,23 @@ $--switch-button-size-h: 16px !default;
   -moz-user-select: $value;
   -webkit-user-select: $value;
   -ms-user-select: $value;
+}
+
+@mixin utils-clearfix {
+  $selector: &;
+
+  @at-root {
+
+    #{$selector}::before,
+    #{$selector}::after {
+      display: table;
+      content: "";
+    }
+
+    #{$selector}::after {
+      clear: both
+    }
+  }
 }
 
 @mixin b($block) {
@@ -495,4 +540,53 @@ $--switch-button-size-h: 16px !default;
 @function hitAllSpecialNestRule($selector) {
 
   @return containsModifier($selector) or containWhenFlag($selector) or containPseudoClass($selector);
+}
+
+/* 布局
+--------------------------*/
+$--base-header-height:60px !default;
+$--base-footer-height:30px !default;
+$--base-aside-width:330px !default;
+$--base-header-background-color:#555 !default;
+
+.wz-header {
+  height: $--base-header-height;
+  background-color: $--base-header-background-color;
+}
+
+.wz-container {
+  width: 100%;
+}
+
+.wz-container-fixed {
+  @extend %display_base;
+  @extend %flex_rowNoWarp;
+  @extend %flex_spaceBetween;
+
+  &.wz-container-child-norow-div {
+    flex: 0 0 100%;
+  }
+}
+
+.wz-container-fixed-height {
+  height: calc(100vh - #{$--base-header-height} - #{$--base-footer-height});
+}
+
+.wz-aside {
+  // width: $--base-aside-width;
+  width: 100%;
+  height: 100%;
+}
+
+.wz-main {
+  width: 100%;
+  height: 100%;
+}
+
+.wz-footer {
+  width: 100%;
+  height: $--base-footer-height;
+  line-height: $--base-footer-height;
+  background-color: #888;
+  color: floralwhite;
 }

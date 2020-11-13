@@ -56,6 +56,15 @@
   content: "\e619";
 }
 
+.wz-icon-arrow-down:before {
+  content: "\e62e";
+}
+
+.wz-icon-arrow-right:before {
+  content: "\e62d";
+}
+
+
 @keyframes rotating {
   0% {
     transform: rotateZ(0deg);

@@ -31,10 +31,33 @@ $--font-path: "/lib/font";
     @extend %flex_center;
 }
 
+.child-width-auto {
+    div {
+        width: auto;
+    }
+}
+
+.child-width-100 {
+    div {
+        width: 100%;
+    }
+}
+
 .margin10 {
     margin: 10px;
 }
 
 .padding5 {
     padding: 5px;
+}
+
+.tLogo {
+    width: 25% !important;
+    background-color: $--color-primary;
+    color: $--color-white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 60px;
+    height: 60px;
+    padding: 0 10px;
 }
