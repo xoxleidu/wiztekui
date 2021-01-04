@@ -9,6 +9,7 @@
       <div>
         <wz-menu :default-active="activeIndex">
           <!-- @select="handleSelect" -->
+
           <wz-menu-item index="1">处理中心</wz-menu-item>
           <wz-submenu index="2">
             <template slot="title">我的工作台</template>
@@ -298,7 +299,7 @@
             </div>
             <div>
               <div class="wz-header">
-                <div style="padding: 0 10px; color: #FFF; line-height: 60px">
+                <div style="padding: 0 10px; color: #fff; line-height: 60px">
                   <b>header</b>
                 </div>
               </div>
@@ -312,7 +313,7 @@
                 >
                   <wz-menu mode="vertical" :default-active="activeIndex">
                     <!-- @select="handleSelect" -->
-                    <wz-menu-item index="1">处理中心</wz-menu-item>
+                    <wz-menu-item index="1">处理中心|</wz-menu-item>
                     <wz-submenu index="2">
                       <template slot="title">我的工作台</template>
                       <wz-menu-item index="2-1">选项1</wz-menu-item>
@@ -346,7 +347,7 @@
                 <div class="wz-container-child-norow-div wz-main">
                   <wz-menu :default-active="activeIndex">
                     <!-- @select="handleSelect" -->
-                    <wz-menu-item index="1">处理中心</wz-menu-item>
+                    <wz-menu-item index="1">处理中心-</wz-menu-item>
                     <wz-submenu index="2">
                       <template slot="title">我的工作台</template>
                       <wz-menu-item index="2-1">选项1</wz-menu-item>

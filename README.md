@@ -9,6 +9,8 @@
 # install wiztekui
 npm install wiztekui -s
 # main.js
+import wiztekui from "wiztekui";
+Vue.use(wiztekui);
 import "wiztekui/lib/css/wiztekui.min.css";
 ```
 
@@ -23,6 +25,7 @@ import "wiztekui/lib/css/wiztekui.min.css";
 create myui.scss In main.js
 ## package.json
 "sass-loader": "^7.3.1",
+"node-sass": "^4.14.1",
 
 # myui.scss:
 $--color-primary: "#0062cc";

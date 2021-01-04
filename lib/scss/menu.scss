@@ -94,7 +94,15 @@
     @include m(horizontal) {
         border-right: none;
 
-        ul {
+        &>div {
+
+            &:not(.is-disabled):hover,
+            &:not(.is-disabled):focus {
+                outline: none;
+            }
+        }
+
+        & ul {
             position: absolute;
 
             li {
@@ -102,9 +110,10 @@
                 margin: 0;
                 padding: 0;
             }
+
         }
 
-        &>.wz-menu-item {
+        & .wz-menu-item {
             float: left;
             height: $--menu-item-height;
             line-height: $--menu-item-height;
@@ -128,7 +137,7 @@
             }
         }
 
-        &>.wz-submenu {
+        & .wz-submenu {
             float: left;
             margin-right: $--menu-item-horizontal-margin-right;
 
@@ -212,7 +221,7 @@
             background-color: $--menu-item-hover-fill;
         }
 
-        &>.wz-menu-item.is-active {
+        & .wz-menu-item.is-active {
             color: $--menu-item-font-active-color;
             background-color: $--menu-item-background-active-color;
         }
