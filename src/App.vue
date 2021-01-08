@@ -49,6 +49,7 @@
             <li><a href="#label-radio">单选-radio</a></li>
             <li><a href="#label-checkbox">多选-checkbox</a></li>
             <li><a href="#label-loading">加载-loading</a></li>
+            <li><a href="#label-message">提示-message</a></li>
             <li><a href="#label-input">输入框-input</a></li>
             <li><a href="#label-button">按钮-button</a></li>
             <li><a href="#label-card">卡片-card</a></li>
@@ -179,6 +180,28 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <wzButton type="primary" @change="fullscreenLoading"
                 >全屏加载</wzButton
+              >
+            </div>
+          </wzCard>
+          <wzCard type="info" id="label-message" shadow="always">
+            <div slot="header" class="clearfix">
+              <span>提示-message</span>
+            </div>
+            <div
+              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start"
+            >
+              <wzButton type="primary" @change="divMessage">提示</wzButton
+              >&nbsp;&nbsp;&nbsp;
+              <wzButton type="success" @change="divMessage(1)"
+                >成功提示</wzButton
+              >&nbsp;&nbsp;&nbsp;
+              <wzButton type="warning" @change="divMessage(2)"
+                >警告提示</wzButton
+              >&nbsp;&nbsp;&nbsp;
+              <wzButton type="info" @change="divMessage(3)">信息提示</wzButton
+              >&nbsp;&nbsp;&nbsp;
+              <wzButton type="danger" @change="divMessage(4)"
+                >错误提示</wzButton
               >
             </div>
           </wzCard>
@@ -457,6 +480,25 @@ export default {
     this.restaurants = this.loadAll();
   },
   methods: {
+    divMessage(key) {
+      switch (key) {
+        case 1:
+          this.$message.success("成功");
+          break;
+        case 2:
+          this.$message.warning("警告");
+          break;
+        case 3:
+          this.$message.info("信息");
+          break;
+        case 4:
+          this.$message.error("失败");
+          break;
+        default:
+          this.$message.primary("默认");
+          break;
+      }
+    },
     divLoading() {
       this.loading = true;
       setTimeout(() => {

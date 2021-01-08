@@ -152,7 +152,7 @@ export default {
 </script>
 ```
 
-如果完整引入了 wiztekUI Vue.prototype 上会有一个全局方法 $loading，它的调用方式为：this.$loading(options)，同样会返回一个 Loading 实例。此时调用它们中任意一个的 close 方法都能关闭这个全屏 Loading。
+如果完整引入了 loading, Vue.prototype 上会有一个全局方法 $loading，它的调用方式为：this.$loading(options)，同样会返回一个 Loading 实例。此时调用它们中任意一个的 close 方法都能关闭这个全屏 Loading。
 
 #### Options
 
@@ -166,6 +166,54 @@ export default {
 | spinner     |                                                            自定义加载图标类名                                                             |    string     |   —    |             — |
 | background  |                                                                遮罩背景色                                                                 |    string     |   —    |             — |
 | customClass |                                                           Loading 的自定义类名                                                            |    string     |   —    |             — |
+
+---
+
+---
+
+## message
+
+```html
+<wzButton @change="handleMessageChange">message</wzButton>
+<script>
+  import { Message } from "wiztekui";
+  export default {
+    data() {
+      return {
+        loading: false
+      };
+    },
+    methods: {
+      handleMessageChange() {
+        Message.primary("信息");
+      }
+    }
+  };
+</script>
+```
+
+Vue.prototype 上会有一个全局方法 $message，它的调用方式为：this.$message(options)，同样会返回一个 Message 实例。此时调用它们中任意一个的 close 方法都能关闭这个全屏 Message。
+
+
+#### Options
+
+| 参数                     |                     说明                      |      类型      |           可选值           | 默认值 |
+| ------------------------ | :-------------------------------------------: | :------------: | :------------------------: | -----: |
+| message                  |                   消息文字                    | string / VNode |             —              |      — |
+| type                     |                     主题                      |     string     | primary、success/warning/info/error |   primary |
+| iconClass                |         自定义图标的类名，会覆盖 type         |     string     |             —              |      — |
+| dangerouslyUseHTMLString |     是否将 message 属性作为 HTML 片段处理     |    boolean     |             —              |  false |
+| customClass              |                  自定义类名                   |     string     |             —              |      — |
+| duration                 |     显示时间, 毫秒。设为 0 则不会自动关闭     |     number     |             —              |   3000 |
+| showClose                |               是否显示关闭按钮                |    boolean     |             —              |  false |
+| center                   |                 文字是否居中                  |    boolean     |             —              |  false |
+| onClose                  | 关闭时的回调函数, 参数为被关闭的 message 实例 |    function    |             —              |      — |
+
+#### message Methods
+
+| 方法名 |        说明        |
+| ------ | :----------------: |
+| close  | 关闭当前的 Message |
 
 ---
 

@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
+
 // import wiztekui from "../dist/wiztekui";
 import wiztekui from "./packages/index";
 // import "../lib/scss/wiztekui.scss";

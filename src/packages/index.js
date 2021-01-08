@@ -22,6 +22,8 @@ import Submenu from "./menu-submenu.vue";
 import MenuItem from "./menu-item.vue";
 import wzMenuItemGroup from "./menu-item-group.vue";
 
+import Message from "../components/message/index";
+
 const components = [
   wzInput,
   wzButton,
@@ -39,11 +41,13 @@ const components = [
   MenuItem,
   Submenu,
   wzMenuItemGroup,
-  Tooltip
+  Tooltip,
+  Message
 ];
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
 const install = function(Vue) {
   Vue.use(loadingDirective);
+  Vue.prototype.$message = Message;
   Vue.prototype.$loading = loadingService;
   // 遍历注册全局组件
   components.forEach(component => {

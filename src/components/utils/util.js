@@ -1,3 +1,9 @@
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+
+export function hasOwn(obj, key) {
+  return hasOwnProperty.call(obj, key);
+}
+
 /**
  * Bind after-leave event for vue instance. Make sure after-leave is called in any browsers.
  *
