@@ -481,6 +481,7 @@ export default {
   },
   methods: {
     divMessage(key) {
+      console.log("this", this);
       switch (key) {
         case 1:
           this.$message.success("成功");
