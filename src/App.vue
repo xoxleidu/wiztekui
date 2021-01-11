@@ -2,11 +2,12 @@
   <div id="app">
     <div
       class="wz-display-flex wz-display-flex-rowNoWarp child-width-100 wz-display-space-between"
+      style="height: 46px; background-color: #0062cc"
     >
       <div class="tLogo">
         {{ msg }}
       </div>
-      <div>
+      <div style="margin-top: 8px">
         <wz-menu :default-active="activeIndex">
           <!-- @select="handleSelect" -->
 

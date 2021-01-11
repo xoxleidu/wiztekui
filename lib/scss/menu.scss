@@ -1,6 +1,6 @@
 @mixin menu-item {
-    height: 56px;
-    line-height: 56px;
+    height: 38px;
+    line-height: 38px;
     font-size: $--menu-item-font-size;
     font-weight: $--font-bold;
     color: $--menu-item-font-color;
@@ -117,11 +117,11 @@
             float: left;
             height: $--menu-item-height;
             line-height: $--menu-item-height;
-            margin-top: calc(#{$--base-header-height} - #{$--menu-item-height});
+            // margin-top: calc(#{$--base-header-height} - #{$--menu-item-height});
             margin-right: $--menu-item-horizontal-margin-right;
             background-color: $--menu-item-background-color;
-            border-top-left-radius: $--menu-item-radius;
-            border-top-right-radius: $--menu-item-radius;
+            border-radius: $--menu-item-radius;
+            // border-top-right-radius: $--menu-item-radius;
 
             a,
             a:hover {
@@ -171,10 +171,10 @@
             & .wz-submenu__title {
                 height: $--menu-item-height;
                 line-height: $--menu-item-height;
-                margin-top: calc(#{$--base-header-height} - #{$--menu-item-height});
+                // margin-top: calc(#{$--base-header-height} - #{$--menu-item-height});
                 background-color: $--menu-item-background-color;
-                border-top-left-radius: $--menu-item-radius;
-                border-top-right-radius: $--menu-item-radius;
+                border-radius: $--menu-item-radius;
+                // border-top-right-radius: $--menu-item-radius;
 
                 &:hover {
                     background-color: $--menu-item-background-active-color;
@@ -196,11 +196,12 @@
             & .wz-submenu__title {
                 background-color: $--color-white;
                 float: none;
-                height: 36px;
-                line-height: 36px;
+                height: 30px;
+                line-height: 30px;
                 padding: 0 10px;
                 margin: 0;
                 color: $--color-text-secondary;
+                border-radius: 0;
             }
 
             & .wz-menu-item.is-active,
@@ -350,8 +351,8 @@
     }
 
     & .wz-menu-item {
-        height: 50px;
-        line-height: 50px;
+        height: 30px;
+        line-height: 30px;
         padding: 0 45px;
         min-width: 200px;
     }
