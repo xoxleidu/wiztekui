@@ -3,7 +3,13 @@ const hasOwnProperty = Object.prototype.hasOwnProperty;
 export function hasOwn(obj, key) {
   return hasOwnProperty.call(obj, key);
 }
-
+export const kebabCase = function(str) {
+  const hyphenateRE = /([^-])([A-Z])/g;
+  return str
+    .replace(hyphenateRE, "$1-$2")
+    .replace(hyphenateRE, "$1-$2")
+    .toLowerCase();
+};
 /**
  * Bind after-leave event for vue instance. Make sure after-leave is called in any browsers.
  *

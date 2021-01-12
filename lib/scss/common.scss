@@ -77,7 +77,7 @@ $--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
 -------------------------- */
 $--index-normal: 1 !default;
 $--index-top: 1000 !default;
-$--index-popper: 2000 !default;
+$--index-popper: 1550 !default;
 // background
 $--background-color-base: #f5f7fa;
 
@@ -94,7 +94,7 @@ $--border-color-base: #dcdfe6 !default;
 $--border-color-light: #e4e7ed;
 $--border-color-lighter: #ebeef5;
 $--border-color-extra-light: #f2f6fc;
-$--border-radius-base: 4px !default;
+$--border-radius-base: 3px !default;
 $--border-radius-small: 2px !default;
 $--border-radius-circle: 100% !default;
 $--border-radius-zero: 0 !default;
@@ -103,6 +103,8 @@ $--border-base:$--border-width-base $--border-style-base $--border-color-base !d
 $--font-weight: 500 !default;
 $--font-bold: 800 !default;
 $--font-size-base: 14px !default;
+$--font-size-large: 18px !default;
+$--font-line-height-primary: 24px !default;
 // Box-shadow
 $--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12),
 0 0 6px rgba(0, 0, 0, .04) !default;
@@ -175,7 +177,7 @@ $--button-mini-padding-horizontal: 10px;
 /* Card
 --------------------------*/
 $--card-border-color: $--border-color-light !default;
-$--card-border-radius: 4px !default;
+$--card-border-radius: 3px !default;
 $--card-padding: 8px !default;
 $--card-background-primary: #000000;
 /* Input
@@ -300,12 +302,27 @@ $--checkbox-button-checked-border-color: $--color-primary !default;
 $--switch-on-color: $--color-primary !default;
 $--switch-off-color: $--border-color-base !default;
 $--switch-font-size: $--font-size-base !default;
-$--switch-core-border-radius: 4px !default;
+$--switch-core-border-radius: 3px !default;
 // height||Other|4 TODO: width 代码写死的40px 所以下面这三个属性都没意义
 $--switch-width: 35px !default;
 $--switch-height: 20px !default;
 $--switch-button-size-w: 15px !default;
 $--switch-button-size-h: 16px !default;
+/* Popup
+-------------------------- */
+$--popup-modal-background-color: $--color-black !default;
+$--popup-modal-opacity: 0.5 !default;
+
+/* Popover
+-------------------------- */
+$--popover-background-color: $--color-white !default;
+$--popover-font-size: $--font-size-base !default;
+$--popover-border-color: $--border-color-lighter !default;
+$--popover-arrow-size: 6px !default;
+$--popover-padding: 12px !default;
+$--popover-padding-large: 18px 20px !default;
+$--popover-title-font-size: 16px !default;
+$--popover-title-font-color: $--color-text-primary !default;
 /* Tooltip
 -------------------------- */
 $--tooltip-fill: $--color-text-primary !default;
@@ -319,6 +336,16 @@ $--tooltip-font-size: 12px !default;
 $--tooltip-border-color: $--color-text-primary !default;
 $--tooltip-arrow-size: 6px !default;
 $--tooltip-padding: 10px !default;
+/* Dialog
+-------------------------- */
+$--dialog-background-color: $--color-white !default;
+$--dialog-header-background-color: $--color-primary-light-8 !default;
+$--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !default;
+$--dialog-title-font-size: $--font-size-large !default;
+$--dialog-content-font-size: 14px !default;
+$--dialog-font-line-height: $--font-line-height-primary !default;
+$--dialog-padding-primary: 10px !default;
+$--dialog-body-padding-primary: 20px 10px !default;
 /* Message
 -------------------------- */
 $--message-shadow: $--box-shadow-base !default;

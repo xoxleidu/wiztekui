@@ -1,5 +1,18 @@
 <template>
   <div id="app">
+    <wz-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleDialogClose"
+    >
+      <span>这是一段信息</span>
+      <span slot="footer" class="dialog-footer">
+        <wz-button type="primary" size="mini" @change="dialogVisible = false"
+          >确 定</wz-button
+        >
+      </span>
+    </wz-dialog>
     <div
       class="wz-display-flex wz-display-flex-rowNoWarp child-width-100 wz-display-space-between"
       style="height: 46px; background-color: #0062cc"
@@ -56,6 +69,7 @@
             <li><a href="#label-card">卡片-card</a></li>
             <li><a href="#label-menu">布局-导航-menu</a></li>
             <li><a href="#label-tooltip">提示-tooltip</a></li>
+            <li><a href="#label-popover-dialog">弹窗-popover-dialog</a></li>
           </ul>
         </div>
         <div class="wz-container-child-norow-div wz-main">
@@ -437,6 +451,63 @@
               >
             </div>
           </wzCard>
+          <wzCard type="info" id="label-popover-dialog" shadow="always">
+            <div slot="header" class="clearfix">
+              <span>弹出框</span>
+            </div>
+            <div
+              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start margin10"
+            >
+              <wz-popover
+                placement="top-start"
+                title="标题"
+                width="200"
+                trigger="hover"
+                content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+              >
+                <wz-button slot="reference">hover 激活</wz-button>
+              </wz-popover>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <wz-popover
+                placement="bottom"
+                title="标题"
+                width="200"
+                trigger="click"
+                content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+              >
+                <wz-button slot="reference">click 激活</wz-button>
+              </wz-popover>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <wz-popover
+                ref="popover"
+                placement="right"
+                title="标题"
+                width="200"
+                trigger="focus"
+                content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+              >
+              </wz-popover>
+              <wz-button v-popover:popover>focus 激活</wz-button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <wz-popover
+                placement="bottom"
+                title="标题"
+                width="200"
+                trigger="manual"
+                content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+                v-model="manualPopover"
+              >
+                <wz-button
+                  slot="reference"
+                  @change="manualPopover = !manualPopover"
+                  >手动激活</wz-button
+                > </wz-popover
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <wz-button type="success" @change="dialogVisible = true"
+                >Dialog</wz-button
+              >
+            </div>
+          </wzCard>
         </div>
       </div>
     </div>
@@ -466,6 +537,8 @@ export default {
       restaurants: [],
       checkAll: false,
       isIndeterminate: false,
+      manualPopover: false,
+      dialogVisible: false,
       activeIndex: "3",
     };
   },
@@ -481,6 +554,9 @@ export default {
     this.restaurants = this.loadAll();
   },
   methods: {
+    handleDialogClose(done) {
+      done();
+    },
     divMessage(key) {
       console.log("this", this);
       switch (key) {

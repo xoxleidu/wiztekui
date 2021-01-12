@@ -8,6 +8,7 @@ import wzCheckbox from "./checkbox.vue";
 import wzCheckboxGroup from "./checkbox-group.vue";
 import wzCheckboxButton from "./checkbox-button.vue";
 import wzSwitch from "./switch.vue";
+import wzDialog from "./dialog.vue";
 import directive from "../components/popover/directive";
 import Popover from "../components/popover/index";
 
@@ -24,6 +25,10 @@ import wzMenuItemGroup from "./menu-item-group.vue";
 
 import Message from "../components/message/index";
 
+/**
+ ** 更新后build保存 min.js文件
+ ***/
+
 const components = [
   wzInput,
   wzButton,
@@ -35,6 +40,7 @@ const components = [
   wzCheckboxGroup,
   wzCheckboxButton,
   wzSwitch,
+  wzDialog,
   Popover,
   CollapseTransition,
   wzMenu,

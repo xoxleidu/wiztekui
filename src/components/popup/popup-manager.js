@@ -155,7 +155,7 @@ Object.defineProperty(PopupManager, "zIndex", {
   configurable: true,
   get() {
     if (!hasInitZIndex) {
-      zIndex = zIndex || 2000;
+      zIndex = zIndex || 1550;
       hasInitZIndex = true;
     }
     return zIndex;
