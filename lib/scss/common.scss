@@ -136,7 +136,7 @@ $--menu-item-font-size: $--font-size-base !default;
 $--menu-item-font-color: $--color-white !default;
 $--menu-item-font-active-color: #555 !default;
 $--menu-background-color: $--color-primary !default;
-$--menu-item-background-color: #95b8e7 !default;
+$--menu-item-background-color: $--color-primary-light-3 !default;
 $--menu-item-background-active-color: $--color-white !default;
 $--menu-item-popup-background-color: $--color-white !default;
 $--menu-item-hover-fill: $--color-primary-light-9 !default;
@@ -179,7 +179,8 @@ $--button-mini-padding-horizontal: 10px;
 $--card-border-color: $--border-color-light !default;
 $--card-border-radius: 3px !default;
 $--card-padding: 8px !default;
-$--card-background-primary: #000000;
+$--card-header-color-text-light:$--color-white !default;
+$--card-header-color-text-dark:$--color-text-primary !default;
 /* Input
 -------------------------- */
 $--input-font-size: $--font-size-base !default;
@@ -319,8 +320,8 @@ $--popover-background-color: $--color-white !default;
 $--popover-font-size: $--font-size-base !default;
 $--popover-border-color: $--border-color-lighter !default;
 $--popover-arrow-size: 6px !default;
-$--popover-padding: 12px !default;
-$--popover-padding-large: 18px 20px !default;
+$--popover-padding: 6px !default;
+$--popover-padding-large: 6px !default;
 $--popover-title-font-size: 16px !default;
 $--popover-title-font-color: $--color-text-primary !default;
 /* Tooltip
@@ -352,24 +353,24 @@ $--message-shadow: $--box-shadow-base !default;
 $--message-min-width: 380px !default;
 $--message-background-color: #edf2fc !default;
 $--message-padding: 15px 15px 15px 20px !default;
-/// color||Color|0
 $--message-close-icon-color: $--color-text-placeholder !default;
-/// height||Other|4
 $--message-close-size: 16px !default;
-/// color||Color|0
 $--message-close-hover-color: $--color-text-secondary !default;
-
-/// color||Color|0
 $--message-primary-font-color: $--color-primary !default;
-/// color||Color|0
 $--message-success-font-color: $--color-success !default;
-/// color||Color|0
 $--message-info-font-color: $--color-info !default;
-/// color||Color|0
 $--message-warning-font-color: $--color-warning !default;
-/// color||Color|0
 $--message-danger-font-color: $--color-danger !default;
-
+/* Collapse
+--------------------------*/
+$--collapse-border-color: $--border-color-lighter !default;
+$--collapse-header-height: 36px !default;
+$--collapse-header-background-color: $--color-primary-light-9 !default;
+$--collapse-header-font-color: $--color-text-primary !default;
+$--collapse-header-font-size: 13px !default;
+$--collapse-content-background-color: $--color-white !default;
+$--collapse-content-font-size: 13px !default;
+$--collapse-content-font-color: $--color-text-primary !default;
 
 /**
  * class value

@@ -14,8 +14,8 @@
       </span>
     </wz-dialog>
     <div
-      class="wz-display-flex wz-display-flex-rowNoWarp child-width-100 wz-display-space-between"
-      style="height: 46px; background-color: #0062cc"
+      class="headerbg wz-display-flex wz-display-flex-rowNoWarp child-width-100 wz-display-space-between"
+      style="height: 46px"
     >
       <div class="tLogo">
         {{ msg }}
@@ -62,6 +62,8 @@
             <li><a href="#label-switch">开关-switch</a></li>
             <li><a href="#label-radio">单选-radio</a></li>
             <li><a href="#label-checkbox">多选-checkbox</a></li>
+            <li><a href="#label-timeBar">时间轴-timeBar</a></li>
+            <li><a href="#label-icon">图标-icon</a></li>
             <li><a href="#label-loading">加载-loading</a></li>
             <li><a href="#label-message">提示-message</a></li>
             <li><a href="#label-input">输入框-input</a></li>
@@ -70,6 +72,7 @@
             <li><a href="#label-menu">布局-导航-menu</a></li>
             <li><a href="#label-tooltip">提示-tooltip</a></li>
             <li><a href="#label-popover-dialog">弹窗-popover-dialog</a></li>
+            <li><a href="#label-collapse">折叠面板</a></li>
           </ul>
         </div>
         <div class="wz-container-child-norow-div wz-main">
@@ -103,6 +106,15 @@
               <span>单选</span>
             </div>
             <div>
+              <wz-radio-group v-model="radiottt" size="medium">
+                <wz-radio name="radiotest" :label="114">单选项</wz-radio>
+                <wz-radio name="radiotest" :label="115">单选项</wz-radio>
+              </wz-radio-group>
+              <wz-radio-group v-model="radiotts" size="medium">
+                <wz-radio name="radiotest" :label="113">单选项</wz-radio>
+                <wz-radio name="radiotest" :label="112">单选项</wz-radio>
+              </wz-radio-group>
+              <br />
               <wzRadio v-model="radio" label="1" disabled></wzRadio>
               <wzRadio v-model="radio" label="2"></wzRadio>
               <wzRadio v-model="radio" label="3" border></wzRadio>
@@ -177,6 +189,109 @@
                 <wz-checkbox :label="23">多选项</wz-checkbox>
                 <wz-checkbox :label="24">多选项</wz-checkbox>
               </wz-checkbox-group>
+            </div>
+          </wzCard>
+          <wzCard type="info" id="label-timeBar" shadow="always">
+            <div slot="header" class="clearfix">
+              <span>时间轴-timeBar</span>
+            </div>
+            <div style="background-color: #f8f8f8; padding: 10px">
+              <ul>
+                <li style="font-weight: bold">可选参数</li>
+                <li>:height="80"</li>
+                <li>:select-background-color="'rgba(100, 98, 204, 1)'"</li>
+                <li>:bar-background-color="'rgba(200, 18, 194, 1)'"</li>
+                <li>:popve-background-color="'rgba(0, 0, 0, 1)'"</li>
+                <li>:popve-font-color="'#00FF00'"</li>
+                <li>:popve-font-size="16"</li>
+                <li>:tooltip-font-color="'#00FF00'"</li>
+                <li>:tooltip-font-size="16"</li>
+                <li>:mark-font-color="'#00FF00'"</li>
+                <li>:mark-font-size="16"</li>
+                <li>:bar-height="30"</li>
+                <li>:velocity="3"</li>
+              </ul>
+              <ul>
+                <li style="font-weight: bold">数据格式(Object) timeData：</li>
+                <li>
+                  { "测试/23": ["01", "03", "06", "20"], "测试/24": ["10",
+                  "20"], "测试/25": ["00", "03", "06", "09", "12", "15", "18",
+                  "21", "23"], "测试/26": ["00", "03"], "测试/27": ["00", "06",
+                  "12", "18"], "测试/28": ["00", "09", "18"], }
+                </li>
+              </ul>
+              <ul>
+                <li style="font-weight: bold">输出格式(Object) change：</li>
+                <li>{ 测试/23: "01"}</li>
+              </ul>
+            </div>
+            <timeBar></timeBar>
+          </wzCard>
+          <wzCard type="info" id="label-icon" shadow="always">
+            <div slot="header" class="clearfix">
+              <span>图标-icon</span>
+            </div>
+            <div>
+              <i class="wz-icon-loading"></i>
+              <i class="wz-icon-circle-close"></i>
+              <i class="wz-icon-search"></i>
+              <i class="wz-icon-home"></i>
+              <i class="wz-icon-setp"></i>
+              <i class="wz-icon-arrow-setp"></i>
+              <i class="wz-icon-sort-setp"></i>
+              <i class="wz-icon-user"></i>
+              <i class="wz-icon-user-solid"></i>
+              <i class="wz-icon-phone"></i>
+              <i class="wz-icon-arrow-primary"></i>
+              <i class="wz-icon-primary"></i>
+              <i class="wz-icon-success"></i>
+              <i class="wz-icon-error"></i>
+              <i class="wz-icon-info"></i>
+              <i class="wz-icon-warning"></i>
+              <i class="wz-icon-del"></i>
+              <i class="wz-icon-caret-success"></i>
+              <i class="wz-icon-caret-error"></i>
+              <i class="wz-icon-play"></i>
+              <i class="wz-icon-pause"></i>
+              <i class="wz-icon-stop"></i>
+              <i class="wz-icon-sort-play"></i>
+              <i class="wz-icon-sort-pause"></i>
+              <i class="wz-icon-sort-stop"></i>
+              <i class="wz-icon-arrow-play"></i>
+              <i class="wz-icon-arrow-pause"></i>
+              <i class="wz-icon-plus"></i>
+              <i class="wz-icon-minus"></i>
+              <i class="wz-icon-next"></i>
+              <i class="wz-icon-pren"></i>
+              <i class="wz-icon-more"></i>
+              <i class="wz-icon-arrow-more"></i>
+              <i class="wz-icon-back-left"></i>
+              <i class="wz-icon-back-right"></i>
+              <i class="wz-icon-arrow-down"></i>
+              <i class="wz-icon-arrow-right"></i>
+              <i class="wz-icon-arrow-left"></i>
+              <i class="wz-icon-arrow-up"></i>
+              <i class="wz-icon-caret-up"></i>
+              <i class="wz-icon-caret-down"></i>
+              <i class="wz-icon-caret-left"></i>
+              <i class="wz-icon-caret-right"></i>
+              <i class="wz-icon-sort-up"></i>
+              <i class="wz-icon-sort-down"></i>
+              <i class="wz-icon-sort-left"></i>
+              <i class="wz-icon-sort-right"></i>
+              <i class="wz-icon-location"></i>
+              <i class="wz-icon-sort-location"></i>
+              <i class="wz-icon-eye"></i>
+              <i class="wz-icon-eye-close"></i>
+              <i class="wz-icon-lock"></i>
+              <i class="wz-icon-unlock"></i>
+              <i class="wz-icon-love"></i>
+              <i class="wz-icon-start"></i>
+              <i class="wz-icon-arrows"></i>
+              <i class="wz-icon-expant"></i>
+              <i class="wz-icon-compress"></i>
+              <i class="wz-icon-sort-expant"></i>
+              <i class="wz-icon-sort-compress"></i>
             </div>
           </wzCard>
           <wzCard
@@ -311,6 +426,15 @@
               <span>卡片</span>
             </div>
             <div>
+              <wzCard type="dark" shadow="hover">
+                <div slot="header" class="clearfix">
+                  <span>卡片名称</span>
+                  <wzButton size="mini" style="float: right; padding: 3px"
+                    >操作按钮</wzButton
+                  >
+                </div>
+                <div class="text item">列表内容</div>
+              </wzCard>
               <wzCard type="primary" shadow="hover">
                 <div slot="header" class="clearfix">
                   <span>卡片名称</span>
@@ -460,6 +584,19 @@
             >
               <wz-popover
                 placement="top-start"
+                trigger="hover"
+                width="auto"
+                :padding="8"
+                :fontSize="12"
+                fontColor="#fff"
+                content="这是一段提示"
+                popper-class="wz-popover-tooltip"
+              >
+                <wz-button slot="reference">hover 激活</wz-button>
+              </wz-popover>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <wz-popover
+                placement="top-start"
                 title="标题"
                 width="200"
                 trigger="hover"
@@ -508,6 +645,49 @@
               >
             </div>
           </wzCard>
+          <wzCard type="info" id="label-collapse" shadow="always">
+            <div slot="header" class="clearfix">
+              <span>折叠面板</span>
+            </div>
+            <wz-collapse v-model="activeNames" @change="collapseHandleChange">
+              <wz-collapse-item name="1">
+                <template slot="title">
+                  一致性 Consistency<i class="header-icon wz-icon-info"></i>
+                </template>
+                <div>
+                  与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；
+                </div>
+                <div>
+                  在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。
+                </div>
+              </wz-collapse-item>
+              <wz-collapse-item title="反馈 Feedback" name="2">
+                <div>
+                  控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；
+                </div>
+                <div>
+                  页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。
+                </div>
+              </wz-collapse-item>
+              <wz-collapse-item title="效率 Efficiency" name="3">
+                <div>简化流程：设计简洁直观的操作流程；</div>
+                <div>
+                  清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；
+                </div>
+                <div>
+                  帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。
+                </div>
+              </wz-collapse-item>
+              <wz-collapse-item title="可控 Controllability" name="4">
+                <div>
+                  用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；
+                </div>
+                <div>
+                  结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。
+                </div>
+              </wz-collapse-item>
+            </wz-collapse>
+          </wzCard>
         </div>
       </div>
     </div>
@@ -529,6 +709,8 @@ export default {
       loading: false,
       input: "",
       radio: "",
+      radiottt: "",
+      radiotts: "",
       meSwitch: true,
       meSwitch1: 0,
       meSwitch2: true,
@@ -540,6 +722,8 @@ export default {
       manualPopover: false,
       dialogVisible: false,
       activeIndex: "3",
+      activeNames: "1",
+      testTimeData: {},
     };
   },
   computed: {
@@ -554,6 +738,7 @@ export default {
     this.restaurants = this.loadAll();
   },
   methods: {
+    collapseHandleChange() {},
     handleDialogClose(done) {
       done();
     },
@@ -654,6 +839,12 @@ export default {
       color: #555;
       font-weight: bold;
     }
+  }
+}
+.wz-popover-tooltip {
+  background-color: #333;
+  .popper__arrow::after {
+    border-top-color: #333 !important;
   }
 }
 </style>

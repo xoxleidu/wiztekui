@@ -26,18 +26,24 @@
         padding: #{$--card-padding - 2 $--card-padding};
         border-bottom: 1px solid $--card-border-color;
         box-sizing: border-box;
+        font-weight: $--font-bold;
 
         @include m(primary) {
             color: $--color-white;
-            font-weight: $--font-bold;
             border-bottom: 1px solid $--border-color-base;
             @extend %--label-bg-gradient-primary;
         }
 
         @include m(info) {
             color: $--color-text-primary;
-            font-weight: $--font-bold;
             @extend %--label-bg-gradient-info;
+        }
+
+
+
+        @include m(dark) {
+            color: $--card-header-color-text-light;
+            background-color: $--color-primary;
         }
     }
 

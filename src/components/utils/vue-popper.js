@@ -151,15 +151,15 @@ export default {
         right: "left"
       };
       let placement = this.popperJS._popper
-        .getAttribute("x-placement")
-        .split("-")[0];
+      .getAttribute("x-placement")
+      .split("-")[0];
       let origin = placementMap[placement];
       this.popperJS._popper.style.transformOrigin =
-        typeof this.transformOrigin === "string"
-          ? this.transformOrigin
-          : ["top", "bottom"].indexOf(placement) > -1
-          ? `center ${origin}`
-          : `${origin} center`;
+      typeof this.transformOrigin === "string"
+      ? this.transformOrigin
+      : ["top", "bottom"].indexOf(placement) > -1
+      ? `center ${origin}`
+      : `${origin} center`;
     },
 
     appendArrow(element) {
@@ -185,6 +185,7 @@ export default {
       arrow.setAttribute("x-arrow", "");
       arrow.className = "popper__arrow";
       element.appendChild(arrow);
+    
     }
   },
 

@@ -10,7 +10,12 @@
         :class="[popperClass, content && 'wz-popover--plain']"
         ref="popper"
         v-show="!disabled && showPopper"
-        :style="{ width: width + 'px' }"
+        :style="{
+          width: width == 'auto' ? 'auto' : width + 'px',
+          fontSize: fontSize + 'px',
+          padding: padding + 'px',
+          color: fontColor,
+        }"
         role="tooltip"
         :id="tooltipId"
         :aria-hidden="disabled || !showPopper ? 'true' : 'false'"
@@ -63,6 +68,18 @@ export default {
     tabindex: {
       type: Number,
       default: 0,
+    },
+    fontColor: {
+      type: String,
+      default: "#333333",
+    },
+    fontSize: {
+      type: Number,
+      default: 14,
+    },
+    padding: {
+      type: Number,
+      default: 15,
     },
   },
 

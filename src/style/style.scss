@@ -1,7 +1,10 @@
 $--font-path: "/lib/font";
 
-
 @import "../../lib/scss/wiztekui.scss";
+.headerbg{
+    background-color:$--color-primary;
+}
+
 
 .wz-display-flex {
     @extend %display_base;

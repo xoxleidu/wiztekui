@@ -9,11 +9,13 @@ import wzCheckboxGroup from "./checkbox-group.vue";
 import wzCheckboxButton from "./checkbox-button.vue";
 import wzSwitch from "./switch.vue";
 import wzDialog from "./dialog.vue";
+import wzCollapse from "./collapse.vue";
+import wzCollapseItem from "./collapse-item.vue";
 import directive from "../components/popover/directive";
 import Popover from "../components/popover/index";
 
 import CollapseTransition from "../components/utils/collapse-transition";
-import Tooltip from "../components/tooltip/index";
+import wzTooltip from "../components/tooltip/main.js";
 
 import loadingDirective from "../components/loading/loading-directive";
 import loadingService from "../components/loading/loading-service";
@@ -25,6 +27,7 @@ import wzMenuItemGroup from "./menu-item-group.vue";
 
 import Message from "../components/message/index";
 
+import timeBar from "./timeBar.vue";
 /**
  ** 更新后build保存 min.js文件
  ***/
@@ -41,14 +44,17 @@ const components = [
   wzCheckboxButton,
   wzSwitch,
   wzDialog,
+  wzCollapse,
+  wzCollapseItem,
+  wzMenu,
+  wzMenuItemGroup,
   Popover,
   CollapseTransition,
-  wzMenu,
   MenuItem,
   Submenu,
-  wzMenuItemGroup,
-  Tooltip,
-  Message
+  wzTooltip,
+  Message,
+  timeBar
 ];
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
 const install = function(Vue) {

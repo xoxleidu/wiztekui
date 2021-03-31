@@ -3,7 +3,7 @@
 @include b(popover) {
     position: absolute;
     background: $--popover-background-color;
-    min-width: 150px;
+    // min-width: 150px;
     border-radius: $--border-radius-base;
     border: 1px solid $--popover-border-color;
     padding: $--popover-padding;

@@ -111,10 +111,104 @@ export default {
 
 | 参数       |                        说明                         |  类型  |         可选值         | 默认值 |
 | ---------- | :-------------------------------------------------: | :----: | :--------------------: | -----: |
-| type       |                        模板                         | string |     primary / info     |      - |
+| type       |                        模板                         | string |  primary / info /dark  |      - |
 | header     | 设置 header，也可以通过 slot#header 传入 DOM string |   —    |           —            |
 | body-style |                  设置 body 的样式                   | object | — { padding: '20px' }  |
 | shadow     |                  设置阴影显示时机                   | string | always / hover / never | always |
+
+---
+
+---
+
+## collapse
+
+折叠面板
+
+```html
+<wz-collapse v-model="activeNames" @change="collapseHandleChange">
+  <wz-collapse-item name="1">
+    <template slot="title">
+      一致性 Consistency<i class="header-icon wz-icon-info"></i>
+    </template>
+    <div>
+      与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；
+    </div>
+    <div>
+      在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。
+    </div>
+  </wz-collapse-item>
+  <wz-collapse-item title="反馈 Feedback" name="2">
+    <div>
+      控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；
+    </div>
+    <div>
+      页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。
+    </div>
+  </wz-collapse-item>
+  <wz-collapse-item title="效率 Efficiency" name="3">
+    <div>简化流程：设计简洁直观的操作流程；</div>
+    <div>
+      清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；
+    </div>
+    <div>
+      帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。
+    </div>
+  </wz-collapse-item>
+  <wz-collapse-item title="可控 Controllability" name="4">
+    <div>
+      用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；
+    </div>
+    <div>
+      结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。
+    </div>
+  </wz-collapse-item>
+</wz-collapse>
+<script>
+  export default {
+    data() {
+      return {
+        activeNames: ["1"]
+      };
+    },
+    methods: {
+      collapseHandleChange(val) {
+        console.log(val);
+      }
+    }
+  };
+</script>
+```
+
+#### collapse Attributes
+
+| 参数            |                                  说明                                   |      类型      | 可选值 | 默认值 |
+| --------------- | :---------------------------------------------------------------------: | :------------: | :----: | :----: |
+| value / v-model | 当前激活的面板(如果是手风琴模式，绑定值类型需要为 string，否则为 array) | string / array |   —    |   —    |
+| accordion       |                             是否手风琴模式                              |    boolean     |   —    | false  |
+
+#### collapse Events
+
+| 事件名称 |                                          说明                                          |           回调参数            |
+| -------- | :------------------------------------------------------------------------------------: | :---------------------------: |
+| change   | 当前激活面板改变时触发(如果是手风琴模式，参数 activeNames 类型为 string，否则为 array) | (activeNames: array / string) |
+
+#### collapse Item Attributes
+
+| 参数     |    说明    |     类型      | 可选值 | 默认值 |
+| -------- | :--------: | :-----------: | :----: | :----: |
+| name     | 唯一标志符 | string/number |   —    |   —    |
+| title    |  面板标题  |    string     |   —    |   —    |
+| disabled |  是否禁用  |    boolean    |   —    |   —    |
+
+---
+
+---
+
+## icon
+
+```html
+<i class="wz-icon-loading"></i>
+```
 
 ---
 
@@ -660,6 +754,20 @@ Popover 的属性与 Tooltip 很类似，它们都是基于 Vue-popper 开发的
 </script>
 ```
 
+如需改变背景颜色，添加 popper-class='wz-popover-tooltip'，border的颜色位置为placement的选项，默认 bottom,参数为：border- + placement.split("-")[0] + -color
+
+```html
+<style>
+.wz-popover-tooltip {
+  background-color: #333;
+}
+.wz-popover-tooltip .popper__arrow::after {
+  border-bottom-color: #333 !important;
+}
+</style>
+```
+
+
 #### Popover Attributes
 
 | 参数            |                      说明                      |      类型      |                                                  可选值                                                   |                        默认值                         |
@@ -667,7 +775,10 @@ Popover 的属性与 Tooltip 很类似，它们都是基于 Vue-popper 开发的
 | trigger         |                    触发方式                    |     String     |                                         click/focus/hover/manual                                          |                         click                         |
 | title           |                      标题                      |     String     |                                                     —                                                     |                           —                           |
 | content         |      显示的内容，也可以通过 slot 传入 DOM      |     String     |                                                     —                                                     |                           —                           |
-| width           |                      宽度                      | String, Number |                                                     —                                                     |                    最小宽度 150px                     |
+| width           |                      宽度,auto为自动                     | String, Number |                                                     auto                                                    |                    -                     |
+| padding        |            padding             |     String, Number     |                                                     —                                                     |                           6                           |
+| fontSize        |            文字大小             |     String, Number     |                                                     —                                                     |                           14px                           |
+| fontColor        |            文字颜色             |     String     |                                                     —                                                     |                           #333333                           |
 | placement       |                    出现位置                    |     String     | top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |                        bottom                         |
 | disabled        |                Popover 是否可用                |    Boolean     |                                                     —                                                     |                         false                         |
 | value / v-model |                  状态是否可见                  |    Boolean     |                                                     —                                                     |                         false                         |
@@ -678,6 +789,7 @@ Popover 的属性与 Tooltip 很类似，它们都是基于 Vue-popper 开发的
 | popper-class    |               为 popper 添加类名               |     String     |                                                     —                                                     |                           —                           |
 | open-delay      |   触发方式为 hover 时的显示延迟，单位为毫秒    |     Number     |                                                     —                                                     |                           —                           |
 | tabindex        |            Popover 组件的 tabindex             |     number     |                                                     —                                                     |                           0                           |
+
 
 #### Slot
 
