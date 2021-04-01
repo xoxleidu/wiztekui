@@ -63,6 +63,7 @@
             <li><a href="#label-radio">单选-radio</a></li>
             <li><a href="#label-checkbox">多选-checkbox</a></li>
             <li><a href="#label-timeBar">时间轴-timeBar</a></li>
+            <li><a href="#label-colorBar">颜色条-colorBar</a></li>
             <li><a href="#label-icon">图标-icon</a></li>
             <li><a href="#label-loading">加载-loading</a></li>
             <li><a href="#label-message">提示-message</a></li>
@@ -226,6 +227,35 @@
               </ul>
             </div>
             <timeBar></timeBar>
+          </wzCard>
+          <wzCard type="info" id="label-colorBar" shadow="always">
+            <div slot="header" class="clearfix">
+              <span>颜色条-colorBar</span>
+            </div>
+            <div style="background-color: #f8f8f8; padding: 10px">
+              <ul>
+                <li style="font-weight: bold">可选参数</li>
+                <li>font-color="#000"</li>
+                <li>text-shadow="#fff"</li>
+                <li>:font-size="14"</li>
+              </ul>
+              <ul>
+                <li style="font-weight: bold">数据格式(Object) colorData</li>
+                <li style="font-weight: bold">names:可切换显示</li>
+                <li>
+                  { type: 0, names: ["低", "中低", "中", "中", "中", "中高",
+                  "中高", "高"], levels: [0, 1, 10, 25, 50, 100, 200, 900],
+                  colors: [ [255, 255, 255], [232, 255, 202], [149, 207, 69],
+                  [0, 144, 0], [0, 193, 255], [30, 0, 255], [255, 0, 255], [150,
+                  0, 84], ], }
+                </li>
+              </ul>
+              <ul>
+                <li style="font-weight: bold">手动更新：</li>
+                <li>this.$refs.colorBar.initBar()</li>
+              </ul>
+            </div>
+            <colorBar :colorData="colorData"></colorBar>
           </wzCard>
           <wzCard type="info" id="label-icon" shadow="always">
             <div slot="header" class="clearfix">
@@ -724,6 +754,21 @@ export default {
       activeIndex: "3",
       activeNames: "1",
       testTimeData: {},
+      colorData: {
+        type: 0,
+        names: ["低", "中低", "中", "中", "中", "中高", "中高", "高"],
+        levels: [0, 1, 10, 25, 50, 100, 200, 900],
+        colors: [
+          [255, 255, 255],
+          [232, 255, 202],
+          [149, 207, 69],
+          [0, 144, 0],
+          [0, 193, 255],
+          [30, 0, 255],
+          [255, 0, 255],
+          [150, 0, 84],
+        ],
+      },
     };
   },
   computed: {
