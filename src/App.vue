@@ -255,7 +255,7 @@
                 <li>this.$refs.colorBar.initBar()</li>
               </ul>
             </div>
-            <colorBar :colorData="colorData"></colorBar>
+            <colorBar :colorData="colorData" :font-size="12"></colorBar>
           </wzCard>
           <wzCard type="info" id="label-icon" shadow="always">
             <div slot="header" class="clearfix">
@@ -757,7 +757,7 @@ export default {
       colorData: {
         type: 0,
         names: ["低", "中低", "中", "中", "中", "中高", "中高", "高"],
-        levels: [0, 1, 10, 25, 50, 100, 200, 900],
+        levels: [-25, -10, -5, 0, 5, 10, 25, 50],
         colors: [
           [255, 255, 255],
           [232, 255, 202],

@@ -1,21 +1,22 @@
 <template>
-  <div class="colorDiv" :style="{ height: fontSize + 8 + 'px' }">
+  <div class="colorDiv" :style="{ height: fontSize + 6 + 'px' }">
     <div class="colorBar">
       <ul
         @click="unShow && (unClick = !unClick)"
         :style="{
-          height: fontSize + 8 + 'px',
-          lineHeight: fontSize + 8 + 'px',
+          height: fontSize + 6 + 'px',
+          lineHeight: fontSize + 6 + 'px',
           fontSize: fontSize + 'px',
           color: fontColor,
           textShadow: '1px 1px 0px ' + textShadow,
         }"
       >
         <li
-          v-for="(value, key, index) in options"
+          v-for="(item, index) in options"
+          :key="index"
           :style="colorFun(options, index)"
         >
-          {{ textFun(value) }}
+          {{ textFun(item) }}
         </li>
       </ul>
     </div>
@@ -51,7 +52,7 @@ export default {
       unShow: false,
       unClick: false,
       type: this.colorData ? this.colorData.type : 0,
-      options: {},
+      options: [],
     };
   },
 
@@ -68,11 +69,8 @@ export default {
   },
   methods: {
     colorFun(item, index) {
-      let c = item[Object.keys(item)[index]][3];
-      let n = item[Object.keys(item)[index + 1]]
-        ? item[Object.keys(item)[index + 1]][3]
-        : null;
-
+      let c = item[index][2];
+      let n = item[index + 1] ? item[index + 1][2] : null;
       if (!n) n = c;
       if (this.type) {
         return {
@@ -85,8 +83,8 @@ export default {
       }
     },
     textFun(item) {
-      let e = item[1];
-      let n = item[2];
+      let e = item[0];
+      let n = item[1];
       if (this.unClick) {
         return n;
       } else {
@@ -102,7 +100,6 @@ export default {
       if (!this.colorData.colors) return;
       if (this.colorData.levels.length < 1) return;
       if (this.colorData.levels.length !== this.colorData.colors.length) return;
-      let obj = {};
       this.colorData.levels.forEach((e, i) => {
         let n = null;
         if (
@@ -112,8 +109,7 @@ export default {
           this.unShow = true;
           n = this.colorData.names[i];
         }
-        obj["" + e] = [
-          i,
+        this.options.push([
           e,
           n,
           "rgb(" +
@@ -123,9 +119,9 @@ export default {
             "," +
             this.colorData.colors[i][2] +
             ")",
-        ];
+        ]);
       });
-      this.options = Object.assign({}, obj);
+      // this.options = Object.assign({}, obj);
     },
   },
 };
