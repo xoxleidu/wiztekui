@@ -862,6 +862,40 @@ export default {
         },
       ];
     },
+    /**
+     * 按key相同值分组树
+     */
+    dataTransform(arr, key) {
+      var map = {},
+        dest = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i][key] == null) {
+          arr[i][key] = "9999";
+          arr[i].GroupName = "其他";
+        }
+        var ai = arr[i];
+        if (!map[ai[key]]) {
+          dest.push({
+            GroupCode: ai[key],
+            GroupCode2: ai.GroupCode2,
+            GroupName: ai.GroupName,
+            children: [ai],
+          });
+          map[ai[key]] = ai;
+        } else {
+          var child = {};
+          var cest = [];
+          for (var j = 0; j < dest.length; j++) {
+            var dj = dest[j];
+            if (dj[key] == ai[key]) {
+              dj.children.push(ai);
+              break;
+            }
+          }
+        }
+      }
+      return dest;
+    },
   },
 };
 </script>

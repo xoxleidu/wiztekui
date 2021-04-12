@@ -45,13 +45,16 @@ export default {
       type: Number,
       default: 14,
     },
+    colorType: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
       isMounted: false,
       unShow: false,
       unClick: false,
-      type: this.colorData ? this.colorData.type : 0,
       options: [],
     };
   },
@@ -72,7 +75,7 @@ export default {
       let c = item[index][2];
       let n = item[index + 1] ? item[index + 1][2] : null;
       if (!n) n = c;
-      if (this.type) {
+      if (this.colorType) {
         return {
           backgroundColor: c,
         };
@@ -100,6 +103,7 @@ export default {
       if (!this.colorData.colors) return;
       if (this.colorData.levels.length < 1) return;
       if (this.colorData.levels.length !== this.colorData.colors.length) return;
+      this.options = [];
       this.colorData.levels.forEach((e, i) => {
         let n = null;
         if (
