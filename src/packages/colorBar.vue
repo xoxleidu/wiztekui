@@ -1,5 +1,8 @@
 <template>
-  <div class="colorDiv" :style="{ height: fontSize + 6 + 'px' }">
+  <div
+    class="colorDiv"
+    :style="{ height: fontSize + Math.abs(textTop) + 6 + 'px' }"
+  >
     <div class="colorBar">
       <ul
         @click="unShow && (unClick = !unClick)"
@@ -16,7 +19,16 @@
           :key="index"
           :style="colorFun(options, index)"
         >
-          {{ textFun(item) }}
+          <span
+            :style="{
+              marginLeft: colorType
+                ? getTextWidth(textFun(item), fontSize) + 'px'
+                : '0px',
+              position: textTop == 0 ? 'relative' : 'absolute',
+              marginTop: textTop == 0 ? '0px' : textTop + 'px',
+            }"
+            >{{ colorType && index == 0 ? "" : textFun(item) }}</span
+          >
         </li>
       </ul>
     </div>
@@ -49,6 +61,10 @@ export default {
       type: Number,
       default: 0,
     },
+    textTop: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -71,6 +87,21 @@ export default {
     this.initBar();
   },
   methods: {
+    getTextWidth(str, fontSize) {
+      // console.log(str, typeof str);
+      if (str < 0) str = Math.abs(str);
+      let result = 0;
+      let ele = document.createElement("div");
+      ele.style.position = "absolute";
+      ele.style.whiteSpace = "nowrap";
+      ele.style.fontSize = fontSize;
+      ele.style.opacity = 0;
+      ele.innerText = "" + str;
+      document.body.append(ele);
+      result = ele.getBoundingClientRect().width;
+      document.body.removeChild(ele);
+      return -(result / 2).toFixed(1);
+    },
     colorFun(item, index) {
       let c = item[index][2];
       let n = item[index + 1] ? item[index + 1][2] : null;
@@ -143,7 +174,6 @@ export default {
   list-style-type: none;
 }
 .colorBar ul {
-  border-radius: 4px;
   border: 1px solid;
   border-color: #fff;
   cursor: pointer;
@@ -162,12 +192,12 @@ export default {
   width: 100%;
 }
 .colorBar ul li:first-child {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .colorBar ul li:last-child {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .colorBar li {
   flex: 100%;

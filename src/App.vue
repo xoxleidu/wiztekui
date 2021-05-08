@@ -238,6 +238,7 @@
                 <li>font-color="#000"</li>
                 <li>text-shadow="#fff"</li>
                 <li>:font-size="14"</li>
+                <li>:color-type="1"</li>
               </ul>
               <ul>
                 <li style="font-weight: bold">数据格式(Object) colorData</li>
@@ -255,7 +256,11 @@
                 <li>this.$refs.colorBar.initBar()</li>
               </ul>
             </div>
-            <colorBar :colorData="colorData" :font-size="12"></colorBar>
+            <colorBar
+              :colorData="colorData"
+              :colorType="1"
+              :font-size="12"
+            ></colorBar>
           </wzCard>
           <wzCard type="info" id="label-icon" shadow="always">
             <div slot="header" class="clearfix">
