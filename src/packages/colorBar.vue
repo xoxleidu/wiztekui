@@ -74,7 +74,14 @@ export default {
       options: [],
     };
   },
-
+  watch: {
+    colorData: {
+      immediate: true,
+      handler(value) {
+        this.initBar();
+      },
+    },
+  },
   computed: {
     runwayWidth() {
       if (this.isMounted) {
@@ -174,8 +181,8 @@ export default {
   list-style-type: none;
 }
 .colorBar ul {
-  border: 1px solid;
-  border-color: #fff;
+  /* border: 1px solid;
+  border-color: #fff; */
   cursor: pointer;
   display: -webkit-box;
   display: -moz-box;
@@ -191,14 +198,14 @@ export default {
   position: absolute;
   width: 100%;
 }
-.colorBar ul li:first-child {
+/* .colorBar ul li:first-child {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 .colorBar ul li:last-child {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-}
+} */
 .colorBar li {
   flex: 100%;
   white-space: nowrap;

@@ -226,7 +226,7 @@
                 <li>{ 测试/23: "01"}</li>
               </ul>
             </div>
-            <timeBar></timeBar>
+            <timeBar :timeData="timeData"></timeBar>
           </wzCard>
           <wzCard type="info" id="label-colorBar" shadow="always">
             <div slot="header" class="clearfix">
@@ -239,6 +239,7 @@
                 <li>text-shadow="#fff"</li>
                 <li>:font-size="14"</li>
                 <li>:color-type="1"</li>
+                <li>:text-top="10"</li>
               </ul>
               <ul>
                 <li style="font-weight: bold">数据格式(Object) colorData</li>
@@ -256,11 +257,7 @@
                 <li>this.$refs.colorBar.initBar()</li>
               </ul>
             </div>
-            <colorBar
-              :colorData="colorData"
-              :colorType="1"
-              :font-size="12"
-            ></colorBar>
+            <colorBar :colorType="1" :font-size="12"></colorBar>
           </wzCard>
           <wzCard type="info" id="label-icon" shadow="always">
             <div slot="header" class="clearfix">
@@ -773,6 +770,12 @@ export default {
           [255, 0, 255],
           [150, 0, 84],
         ],
+      },
+      timeData: {
+        colors3: ["00"],
+        levels: ["00", "01", "02", "03", "04"],
+        colors: ["00", "01", "02"],
+        colors2: ["00", "01", "02", "03", "04"],
       },
     };
   },

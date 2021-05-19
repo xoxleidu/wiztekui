@@ -5,6 +5,7 @@
     @keydown.left="onLeftKeyDown"
     @keydown.right="onRightKeyDown"
     tabindex="0"
+    v-if="show"
   >
     <div
       class="timeButton"
@@ -49,21 +50,21 @@
         <div
           class="timeBar__button"
           :style="{
-            width: '2px',
+            width: '0px',
             height: barHeight + 'px',
             marginLeft: speed + 'px',
-            backgroundColor: popveBackgroundColor,
           }"
         >
+          <!-- backgroundColor: popveBackgroundColor, -->
           <div
             :style="{
-              position: 'absolute',
-              width: '2px',
-              height: barHeight + 10 + 'px',
-              backgroundColor: popveBackgroundColor,
-              bottom: 0,
-              left: 0,
+              bottom: barHeight + 'px',
+              left: '-10px',
+              borderLeft: '5px solid transparent',
+              borderRight: '5px solid transparent',
+              borderTop: '10px solid ' + popveBackgroundColor,
             }"
+            class="timeBar__pointer"
           ></div>
           <!-- right: selectIndex < 2 ? 'auto' : 0, -->
           <div
@@ -96,7 +97,11 @@
               v-for="(s, i) in item.value"
               :key="s.value"
               @click="timeClick(s)"
-              :style="{ height: barHeight + 'px' }"
+              :style="{
+                height: barHeight + 'px',
+                backgroundColor:
+                  s.current <= selectIndex ? popveBackgroundColor : '',
+              }"
               v-on:mouseover="stopMouseover('tooltip' + s.current)"
               v-on:mouseout="stopMouseout('tooltip' + s.current)"
             >
@@ -114,8 +119,13 @@
             </div>
           </div>
         </div>
-        <div class="timeBar__marks">
-          <div class="timeBar__marks-text" v-for="m in marks" :key="m.index">
+        <div class="timeBar__marks" :style="{ width: runwayWidth + 'px' }">
+          <div
+            class="timeBar__marks-text"
+            :style="{ width: runwayWidth / marks.length + 'px' }"
+            v-for="m in marks"
+            :key="m.index"
+          >
             <a
               @click="markClick(m.index)"
               :style="{ color: markFontColor, fontSize: markFontSize + 'px' }"
@@ -124,14 +134,14 @@
             <div class="timeBar__marks-text-line"></div>
           </div>
         </div>
-        <div
+        <!-- <div
           class="timeBar__bar"
           :style="{
             width: speed + 'px',
             height: barHeight - 2 + 'px',
             backgroundColor: selectBackgroundColor,
           }"
-        ></div>
+        ></div> -->
       </div>
     </div>
   </div>
@@ -144,14 +154,7 @@ export default {
     timeData: {
       type: Object,
       default: function () {
-        return {
-          "测试/23": ["01", "03", "06", "20"],
-          "测试/24": ["10", "20"],
-          "测试/25": ["00", "03", "06", "09", "12", "15", "18", "21", "23"],
-          "测试/26": ["00", "03"],
-          "测试/27": ["00", "06", "12", "18"],
-          "测试/28": ["00", "09", "18"],
-        };
+        return {};
       },
     },
     selectBackgroundColor: {
@@ -205,6 +208,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       hovering: false,
       isMounted: false,
       spots: [],
@@ -224,7 +228,14 @@ export default {
       autoPlay: null,
     };
   },
-
+  watch: {
+    timeData: {
+      immediate: true,
+      handler(value) {
+        this.initBar();
+      },
+    },
+  },
   computed: {
     runwayWidth() {
       if (this.isMounted) {
@@ -372,7 +383,11 @@ export default {
       let index = 0;
       let ii = 0;
       let data = Object.keys(this.timeData);
-      if (data.length == 0) return;
+      if (data.length == 0) {
+        this.show = false;
+        return;
+      }
+      this.show = true;
       data = this.timeData;
       let _width = Math.floor(this.runwayWidth / this.getLength(data));
       this.spots = [];
@@ -552,6 +567,11 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.timeBar__pointer {
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 .timeBar__bar {
   position: absolute;
