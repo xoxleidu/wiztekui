@@ -29,6 +29,7 @@ import Message from "../components/message/index";
 
 import timeBar from "./timeBar.vue";
 import colorBar from "./colorBar.vue";
+import dayBar from "./dayBar.vue";
 /**
  ** 更新后build保存 min.js文件
  ***/
@@ -56,10 +57,11 @@ const components = [
   wzTooltip,
   Message,
   timeBar,
+  dayBar,
   colorBar
 ];
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
-const install = function(Vue) {
+const install = function (Vue) {
   Vue.use(loadingDirective);
   Vue.prototype.$loading = loadingService;
   // 遍历注册全局组件

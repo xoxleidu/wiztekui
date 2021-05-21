@@ -13,6 +13,9 @@
         >
       </span>
     </wz-dialog>
+    <div style="width: 100%">
+      <dayBar></dayBar>
+    </div>
     <div
       class="headerbg wz-display-flex wz-display-flex-rowNoWarp child-width-100 wz-display-space-between"
       style="height: 46px"
