@@ -4,9 +4,10 @@
       <div class="current">{{ currentTemp }}:{{ currentI }}</div>
       <div class="button">
         <ul>
-          <li>&laquo;</li>
-          <li>播放</li>
-          <li>&raquo;</li>
+          <li @click="playFun(-1)">&laquo;</li>
+          <li v-show="!playing" @click="startPlayOrPause">播放</li>
+          <li v-show="playing" @click="startPlayOrPause">暂停</li>
+          <li @click="playFun(1)">&raquo;</li>
         </ul>
       </div>
     </div>
@@ -16,16 +17,16 @@
           <li
             v-if="item.show"
             v-for="i in item.children"
-            :key="i"
+            :key="i.id"
             @click="timeClick(item.name, i)"
-            v-on:mouseover="stopMouseover('tooltip' + item.name + i)"
-            v-on:mouseout="stopMouseout('tooltip' + item.name + i)"
-            :style="currentStyle(item.name, i)"
+            v-on:mouseover="stopMouseover('tooltip' + item.name + i.name)"
+            v-on:mouseout="stopMouseout('tooltip' + item.name + i.name)"
+            :style="currentStyle(item.name, i.name)"
           >
-            <div :ref="'tooltip' + item.name + i" class="tooltip">
-              {{ item.name }}:{{ i }}
+            <div :ref="'tooltip' + item.name + i.name" class="tooltip">
+              {{ item.name }}:{{ i.name }}
             </div>
-            {{ i }}
+            {{ i.name }}
           </li>
         </ul>
       </div>
@@ -62,6 +63,10 @@ export default {
         };
       },
     },
+    velocity: {
+      type: Number,
+      default: 1.5,
+    },
   },
   data() {
     return {
@@ -69,6 +74,8 @@ export default {
       currentTemp: "",
       currentP: "",
       currentI: "",
+      index: 0,
+      aLength: 0,
       playing: false,
       autoPlay: null,
     };
@@ -85,11 +92,26 @@ export default {
     play() {
       this.autoPlay = setInterval(() => {
         //
+        this.playFun(1);
       }, this.velocity * 1000);
     },
     pause() {
       clearInterval(this.autoPlay);
       this.playing = false;
+    },
+    playFun(num) {
+      let i = this.index + num;
+      if (!i || i < 0 || i >= this.aLength) {
+        this.pause();
+      }
+      this.options.forEach((ele) => {
+        ele.children.forEach((e) => {
+          if (e.index == i) {
+            this.showClick(ele.name);
+            this.timeClick(ele.name, e);
+          }
+        });
+      });
     },
     init() {
       let data = Object.keys(this.dayData);
@@ -99,23 +121,37 @@ export default {
       }
       data = this.dayData;
       let num = 0;
+      let index = 0;
       for (const key in data) {
         let obj = {};
-        obj.pid = num;
+        obj.pid = 0;
         obj.id = num;
         obj.name = key;
-        obj.children = data[key];
+        obj.children = [];
         if (num == 0) {
           obj.show = true;
         } else {
           obj.show = false;
         }
+        if (data[key].length > 0) {
+          for (let i = 0; i < data[key].length; i++) {
+            let o = {};
+            o.index = index;
+            o.id = data[key][i];
+            o.name = data[key][i];
+            obj.children.push(o);
+            index++;
+          }
+        }
         this.options.push(obj);
         num++;
       }
+
       this.currentTemp = this.options[0].name;
       this.currentP = this.options[0].name;
-      this.currentI = this.options[0].children[0];
+      this.currentI = this.options[0].children[0].name;
+      this.index = 0;
+      this.aLength = index;
     },
     showClick(name) {
       this.options.forEach((e) => {
@@ -129,8 +165,10 @@ export default {
     },
     timeClick(p, i) {
       this.currentTemp = p;
-      this.currentI = i;
-      this.$emit("change", p + i);
+      this.currentI = i.name;
+      this.index = i.index;
+      console.log("选择time=", p + ":" + i.name);
+      this.$emit("change", p + ":" + i.name);
     },
     stopMouseover(keys) {
       this.$refs[keys][0].style.display = "block";
@@ -209,8 +247,8 @@ export default {
   padding: 24px 0 0 0;
 }
 .button li {
-  background-color: cadetblue;
-  color: cornsilk;
+  background-color: #4d91db;
+  color: #fff;
   font-size: 14px;
   flex: auto;
   text-align: center;
@@ -221,6 +259,6 @@ export default {
   user-select: none;
 }
 .button li:hover {
-  background-color: crimson;
+  background-color: #0062cc;
 }
 </style>
