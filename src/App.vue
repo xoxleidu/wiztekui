@@ -338,9 +338,7 @@
             <div slot="header" class="clearfix">
               <span>加载-loading</span>
             </div>
-            <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start"
-            >
+            <div>
               <wzButton type="primary" @change="divLoading">dom加载</wzButton>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <wzButton type="primary" @change="fullscreenLoading"
@@ -352,9 +350,7 @@
             <div slot="header" class="clearfix">
               <span>提示-message</span>
             </div>
-            <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start"
-            >
+            <div>
               <wzButton type="primary" @change="divMessage">提示</wzButton
               >&nbsp;&nbsp;&nbsp;
               <wzButton type="success" @change="divMessage(1)"
@@ -430,16 +426,12 @@
             <div slot="header" class="clearfix">
               <span>按钮</span>
             </div>
-            <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start margin10"
-            >
+            <div class="margin10">
               <wzButton type="primary" :disabled="true">禁用</wzButton>
               <wzButton type="primary" :loading="true">加载</wzButton>
               <wzButton type="primary" icon="wz-icon-phone">带图标</wzButton>
             </div>
-            <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start margin10"
-            >
+            <div class="margin10">
               <wzButton type="primary">默认</wzButton>
               <wzButton type="success">成功</wzButton>
               <wzButton type="warning">警告</wzButton>
@@ -447,9 +439,7 @@
               <wzButton type="info">信息</wzButton>
               <wzButton type="text">文字</wzButton>
             </div>
-            <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start margin10"
-            >
+            <div class="margin10">
               <wzButton type="primary" size="big">大号</wzButton>
               <wzButton type="primary" size="medium">中号</wzButton>
               <wzButton type="primary" size="small">小号</wzButton>
@@ -614,9 +604,7 @@
             <div slot="header" class="clearfix">
               <span>弹出框</span>
             </div>
-            <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start margin10"
-            >
+            <div class="margin10">
               <wz-popover
                 placement="top-start"
                 trigger="hover"
