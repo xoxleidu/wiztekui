@@ -13,11 +13,13 @@
         >
       </span>
     </wz-dialog>
-    <div style="width: 100%">
-      <dayBar></dayBar>
-    </div>
     <div
-      class="headerbg wz-display-flex wz-display-flex-rowNoWarp child-width-100 wz-display-space-between"
+      class="
+        headerbg
+        wz-display-flex wz-display-flex-rowNoWarp
+        child-width-100
+        wz-display-space-between
+      "
       style="height: 46px"
     >
       <div class="tLogo">
@@ -147,7 +149,10 @@
               <span>多选</span>
             </div>
             <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start margin10"
+              class="
+                wz-display-flex wz-display-flex-rowWarp wz-display-flex-start
+                margin10
+              "
             >
               <wzCheckbox v-model="checkbox" label="1" disabled></wzCheckbox>
               <wzCheckbox v-model="checkbox" label="2"></wzCheckbox>
@@ -197,23 +202,28 @@
           </wzCard>
           <wzCard type="info" id="label-timeBar" shadow="always">
             <div slot="header" class="clearfix">
-              <span>时间轴-timeBar</span>
+              <span>时间轴-timeBar-dayBar</span>
             </div>
             <div style="background-color: #f8f8f8; padding: 10px">
               <ul>
-                <li style="font-weight: bold">可选参数</li>
-                <li>:height="80"</li>
-                <li>:select-background-color="'rgba(100, 98, 204, 1)'"</li>
-                <li>:bar-background-color="'rgba(200, 18, 194, 1)'"</li>
-                <li>:popve-background-color="'rgba(0, 0, 0, 1)'"</li>
-                <li>:popve-font-color="'#00FF00'"</li>
-                <li>:popve-font-size="16"</li>
-                <li>:tooltip-font-color="'#00FF00'"</li>
-                <li>:tooltip-font-size="16"</li>
-                <li>:mark-font-color="'#00FF00'"</li>
-                <li>:mark-font-size="16"</li>
-                <li>:bar-height="30"</li>
-                <li>:velocity="3"</li>
+                <li style="font-weight: bold">timeBar-可选参数</li>
+                <li>:height="80" 整体高度</li>
+                <li>
+                  :select-background-color="'rgba(100, 98, 204, 1)'" 选中颜色
+                </li>
+                <li>:bar-background-color="'rgba(200, 18, 194, 1)'" 颜色</li>
+                <li>
+                  :popve-background-color="'rgba(0, 0, 0, 1)'" 上提示文字背景色
+                </li>
+                <li>:popve-font-color="'#00FF00'" 上提示文字颜色</li>
+                <li>:popve-font-size="16" 上提示文字大小</li>
+                <li>:tooltip-font-color="'#00FF00'" 中断点文字颜色</li>
+                <li>:tooltip-font-size="16" 中断点文字大小</li>
+                <li>:mark-font-color="'#00FF00'" 下断点文字颜色</li>
+                <li>:mark-font-size="16" 下断点文字大小</li>
+                <li>:bar-height="30" 高度</li>
+                <li>:velocity="3" 播放速度：秒</li>
+                <li>:alignment="true" 日等分/时等分</li>
               </ul>
               <ul>
                 <li style="font-weight: bold">数据格式(Object) timeData：</li>
@@ -230,6 +240,25 @@
               </ul>
             </div>
             <timeBar :timeData="timeData"></timeBar>
+            <br />
+            <br />
+            <br />
+            <ul>
+              <li style="font-weight: bold">dayBar-可选参数</li>
+              <li>:velocity="3" 播放速度：秒</li>
+              <li style="font-weight: bold">数据格式(Object) timeData：</li>
+              <li>
+                { "测试/23": ["01", "03", "06", "20"], "测试/24": ["10", "20"],
+                "测试/25": ["00", "03", "06", "09", "12", "15", "18", "21",
+                "23"], "测试/26": ["00", "03"], "测试/27": ["00", "06", "12",
+                "18"], "测试/28": ["00", "09", "18"], }
+              </li>
+            </ul>
+            <ul>
+              <li style="font-weight: bold">输出格式(Object) change：</li>
+              <li>{ 测试/23: "01"}</li>
+            </ul>
+            <dayBar></dayBar>
           </wzCard>
           <wzCard type="info" id="label-colorBar" shadow="always">
             <div slot="header" class="clearfix">
@@ -241,8 +270,8 @@
                 <li>font-color="#000"</li>
                 <li>text-shadow="#fff"</li>
                 <li>:font-size="14"</li>
-                <li>:color-type="1"</li>
-                <li>:text-top="10"</li>
+                <li>:color-type="1" 颜色块/渐变</li>
+                <li>:text-top="10" 文字位置</li>
               </ul>
               <ul>
                 <li style="font-weight: bold">数据格式(Object) colorData</li>
@@ -260,7 +289,11 @@
                 <li>this.$refs.colorBar.initBar()</li>
               </ul>
             </div>
-            <colorBar :colorType="1" :font-size="12"></colorBar>
+            <colorBar
+              :colorType="1"
+              :colorData="colorData"
+              :font-size="12"
+            ></colorBar>
           </wzCard>
           <wzCard type="info" id="label-icon" shadow="always">
             <div slot="header" class="clearfix">
@@ -371,7 +404,11 @@
               <span>输入框</span>
             </div>
             <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start child-width-auto margin10"
+              class="
+                wz-display-flex wz-display-flex-rowWarp wz-display-flex-start
+                child-width-auto
+                margin10
+              "
             >
               <div>
                 基础用法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -391,7 +428,11 @@
               <wzInput v-model="input" suffix-icon="wz-icon-search"></wzInput>
             </div>
             <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start child-width-auto margin10"
+              class="
+                wz-display-flex wz-display-flex-rowWarp wz-display-flex-start
+                child-width-auto
+                margin10
+              "
             >
               <div>
                 solt元素&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -409,7 +450,11 @@
               </wzInput>
             </div>
             <div
-              class="wz-display-flex wz-display-flex-rowWarp wz-display-flex-start child-width-auto margin10"
+              class="
+                wz-display-flex wz-display-flex-rowWarp wz-display-flex-start
+                child-width-auto
+                margin10
+              "
             >
               <div>大小&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
               <wzInput v-model="input" size="big"> </wzInput>

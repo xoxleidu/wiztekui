@@ -91,6 +91,9 @@
             class="timeBar__stop"
             v-for="(item, index) in spots"
             :key="index"
+            :style="{
+              width: alignment ? 'auto' : item.width * item.value.length + 'px',
+            }"
           >
             <div
               class="timeBar__stop-spot"
@@ -120,9 +123,14 @@
           </div>
         </div>
         <div class="timeBar__marks" :style="{ width: runwayWidth + 'px' }">
+          <!-- :style="{ width: runwayWidth / marks.length + 'px' }" -->
           <div
             class="timeBar__marks-text"
-            :style="{ width: runwayWidth / marks.length + 'px' }"
+            :style="{
+              width: alignment
+                ? runwayWidth / marks.length + 'px'
+                : m.width + 'px',
+            }"
             v-for="m in marks"
             :key="m.index"
           >
@@ -156,6 +164,10 @@ export default {
       default: function () {
         return {};
       },
+    },
+    alignment: {
+      type: Boolean,
+      default: false,
     },
     selectBackgroundColor: {
       type: String,
@@ -395,21 +407,30 @@ export default {
       this.indexs = {};
       for (const key in data) {
         let spot = [];
-        let w = Math.round(_width / this.getLength(data[key]));
+        let w = this.alignment
+          ? Math.round(_width / this.getLength(data[key]))
+          : _width;
         data[key].forEach((e, i) => {
+          let __w = this.alignment
+            ? Math.round(w + w * i + _width * index)
+            : Math.round(w + w * ii);
           let obj = {
             value: e,
             _value: key,
             current: ii,
             width: w,
-            _width: Math.round(w + w * i + _width * index),
+            _width: __w,
           };
           spot.push(obj);
           this.indexs["" + ii] = obj;
           ii++;
         });
         this.spots.push({ value: spot, key: key, index: index, width: _width });
-        this.marks.push({ index: index, key: key });
+        this.marks.push({
+          index: index,
+          key: key,
+          width: _width * data[key].length,
+        });
         index++;
       }
       this.currentIndex = 0;
@@ -450,12 +471,22 @@ export default {
         }
       }
     },
-    getLength(obj) {
+    getLength(obj, bool) {
       let n = 0;
+      let m = 0;
       for (const keys in obj) {
+        for (let i = 0; i < obj[keys].length; i++) {
+          m++;
+        }
         n++;
       }
-      return n;
+      // debugger;
+      // if(this.alignment){}else{}
+      if (this.alignment) {
+        return n;
+      } else {
+        return m;
+      }
     },
     stopMouseover(keys) {
       this.$refs[keys][0].style.display = "block";
